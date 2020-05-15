@@ -1,8 +1,8 @@
 # c-ui
 
-## Project setup
+## 安装
 ```
-yarn install
+yarn add c-ui-cmq
 ```
 
 ### Compiles and hot-reloads for development
