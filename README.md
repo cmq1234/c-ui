@@ -1,24 +1,17 @@
 # c-ui
-
+## 特性
+```
+基于 Element 开发的 UI 组件
+封装扩展form和table，更加简洁易容
+```
 ## 安装
 ```
-yarn add c-ui-cmq
+yarn add c-ui-cmq  / npm install c-ui-cmq --save
 ```
 
-### Compiles and hot-reloads for development
+### 使用
 ```
-yarn serve
+import CUI from 'c-ui-cmq'
+import 'c-ui-cmq/lib/theme-chalk/index.css'
+Vue.use(CUI)
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
