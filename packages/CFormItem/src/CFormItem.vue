@@ -118,14 +118,14 @@ export default {
         case SysFld.DISP_TYPE_VAL.TEXTFIELD:
         case SysFld.DISP_TYPE_VAL.NUMBER:
           return 'c-input'
-        // case SysFld.DISP_TYPE_VAL.PULLDOWN:
-        //   return 'sc-select'
+        case SysFld.DISP_TYPE_VAL.PULLDOWN:
+          return 'c-select'
         // case SysFld.DISP_TYPE_VAL.SELECTIMAGE:
         //   return 'sc-select-image'
         // case SysFld.DISP_TYPE_VAL.SELECTICON:
         //   return 'sc-select-icon'
-        // case SysFld.DISP_TYPE_VAL.DATEPICKER:
-        //   return 'sc-date-picker'
+        case SysFld.DISP_TYPE_VAL.DATEPICKER:
+          return 'c-date-picker'
         // case SysFld.DISP_TYPE_VAL.RADIOBOX:
         //   return 'sc-radio-group'
         // case SysFld.DISP_TYPE_VAL.CHECKBOX:
