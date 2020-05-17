@@ -9,7 +9,7 @@
 yarn add c-ui-cmq  / npm install c-ui-cmq --save
 ```
 
-### 使用
+## 使用
 ```
 import CUI from 'c-ui-cmq'
 import 'c-ui-cmq/lib/theme-chalk/index.css'
