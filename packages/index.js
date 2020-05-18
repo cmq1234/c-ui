@@ -5,9 +5,10 @@ import CQuery from './CQuery/src/CQuery'
 import CSelect from './CSelect/src/CSelect'
 import CDatePicker from './CDatePicker/src/CDatePicker'
 import CDialog from './CDialog/index'
+import CTable from './CTable/src/CTable'
 
 const components = [
-  CForm, CFormItem, CQuery, CSelect, CDatePicker
+  CForm, CFormItem, CQuery, CSelect, CDatePicker, CTable
 ]
 
 const install = function (Vue) {
@@ -28,5 +29,6 @@ export default {
   CQuery,
   CSelect,
   CDatePicker,
-  CDialog
+  CDialog,
+  CTable
 }
