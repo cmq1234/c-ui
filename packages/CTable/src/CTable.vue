@@ -60,28 +60,26 @@
               size="mini">
               {{ btn[btTitle] }}
             </el-button>
-            <el-dropdown v-if="rowBtns.length>4">
-                            <span class="el-dropdown-link">
-                                更多
-                            </span>
+          </template>
+            <el-dropdown v-if="rowBtns.length>4" :key="index">
+              <span class="el-dropdown-link">
+                  更多
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item
                   v-for="(btn, index) in rowBtns"
+                  v-show="index>=4"
                   :key="btn[btTitle]"
-                  class="button-dropdown-item"
-                >
-                  <template v-if="index>=4">
-                    <el-button
-                      :type="btn[btShowType]"
-                      @click="rowBtnClick(btn[btClick], row, btn)"
-                      size="mini">
-                      {{ btn[btTitle] }}
-                    </el-button>
-                  </template>
+                  class="button-dropdown-item">
+                  <el-button
+                    :type="btn[btShowType]"
+                    @click="rowBtnClick(btn[btClick], row, btn)"
+                    size="mini">
+                    {{ btn[btTitle] }}
+                  </el-button>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-          </template>
         </template>
       </el-table-column>
     </el-table>
@@ -206,7 +204,7 @@ export default {
     setDefaultSelectColumns () {
       this.columns.forEach(item => {
         if (item[SysFld.SHOW_CONTROLLER] !== SysFld.CONTROLLER_VAL.INVISIBLE) {
-          this.defaultFldList.push(item[this.colName])
+          this.defaultFldList.push(item)
         }
       })
     },
@@ -284,6 +282,123 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+  .sc-table-style{
+    .operate-column{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding-right: 30px;
+      padding-left: 0;
+      left: 0;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    .operate-column:hover{
+      background-color: #e1e1e1;
+    }
+    thead tr .small-padding .cell{
+      padding-left: 0;
+      padding-right: 30px;
+    }
+    .select-columns{
+      padding:0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 28px;
+      height: 100%;
+      background-color: #f2f2f2;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      z-index:99
+    }
 
+    .select-columns:hover{
+      background-color: #e1e1e1;
+    }
+
+    .select-columns:hover+.operate-column{
+      background-color: #ededed;
+    }
+
+    .el-dropdown-link {
+      margin-left: 10px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #409EFF;
+    }
+
+    .el-icon-arrow-down {
+      font-size: 12px;
+    }
+
+    /*设置表格行背景颜色*/
+    .el-table tr{
+      background: #fbfbfb;
+    }
+    .el-table__header tr,
+    .el-table__header th {
+      padding: 0;
+      height: 40px;
+    }
+
+    /*设置头部背景颜色*/
+    .el-table th{
+      background: #f2f2f2;
+    }
+    /**/
+    .el-table .data-column{
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    .el-table .data-column:hover{
+      background: #e1e1e1;
+    }
+
+    .el-table th.gutter{
+      display: table-cell!important;
+    }
+
+    .el-table__body tr.el-table__row--striped.current-row td,
+    .el-table__body tr.current-row>td {
+      /*color: #fff;*/
+      background-color: #E6F7FF!important;
+    }
+  }
+
+  .column-dropdown {
+    .dropdown-menu-checkbox{
+      max-height: 200px;
+      overflow-y: scroll
+    }
+
+    .dropdown-menu-checkbox::-webkit-scrollbar{
+      width: 0;
+    }
+
+    .dropdown-menu-bottom{
+      border-top: 1px solid #e8e8e8;
+      height: 20px;
+      padding-top: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .dropdown-menu-bottom-button{
+      cursor: pointer;
+      color: #1890ff;
+    }
+  }
+
+  .button-dropdown-item{
+    line-height: 28px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
 </style>
